@@ -9,6 +9,27 @@
 import time
 import selenium
 from selenium import webdriver
+from pathlib import Path
+import os
+import sys
+
+
+
+
+
+
+try:
+    local_path = os.path.dirname(os.path.realpath(__file__))
+except NameError as e:
+    local_path = os.getcwd()
+
+
+
+
+
+
+PATH = os.environ.get("PATH")
+os.environ['PATH'] = f'{PATH}:{local_path}'
 
 
 
@@ -90,13 +111,6 @@ runWholeProject.saveToFile()
 end = time.time()
 elapsed = end - begin
 print(f"This process took {elapsed} seconds to complete")
-
-
-
-
-
-
-
 
 
 
