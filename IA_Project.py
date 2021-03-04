@@ -6,22 +6,14 @@
 
 
 
+VERSION = "2021.03.04_13.23"
 import time
 import selenium
 from selenium import webdriver
 from pathlib import Path
 import os
-import sys
-
-
-
-
-
-
-try:
-    local_path = os.path.dirname(os.path.realpath(__file__))
-except NameError as e:
-    local_path = os.getcwd()
+# import sys
+import my_path
 
 
 
@@ -29,7 +21,15 @@ except NameError as e:
 
 
 PATH = os.environ.get("PATH")
-os.environ['PATH'] = f'{PATH}:{local_path}'
+os.environ['PATH'] = f'{my_path.absolute_path}:{PATH}'
+
+
+
+
+
+
+print(f'VERSION: {VERSION}')
+print(f'PATH: {os.environ["PATH"]}')
 
 
 
