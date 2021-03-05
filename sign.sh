@@ -1,5 +1,5 @@
 #!/bin/bash
-~/bin/develtools/codesign.py codesign.ini
+~/bin/develtools/pycodesign.py codesign.ini
 
 if [[ $? == 0 ]]; then
   echo "sign and staple succeeded; pushing update to github"
