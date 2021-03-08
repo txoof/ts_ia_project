@@ -45,6 +45,7 @@ class AIProject:
      self.driver = driver
      self.i = i
      self.allText = allText
+     self.output_path = Path('~/Desktop/IA_Project_output').expanduser()
   def openBrowser(self):
      self.driver.get(url)
      self.driver.maximize_window()
