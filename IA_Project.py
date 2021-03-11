@@ -6,7 +6,7 @@
 
 
 
-VERSION = "2021.03.11_13.23"
+VERSION = "2021.03.11_20.25"
 import time
 import selenium
 from selenium import webdriver
@@ -50,8 +50,11 @@ class AIProject:
   def openBrowser(self):
      self.driver.get(url)
      self.driver.maximize_window()
-     GetRidOfButton = self.driver.find_element_by_id("_evidon-accept-button")
-     GetRidOfButton.click()
+     try:
+         GetRidOfButton = self.driver.find_element_by_id("_evidon-accept-button")
+         GetRidOfButton.click()
+     except selenium.common.exceptions.NoSuchElementException as e:
+        print(f'yaaarg! couldn\'t get rid of button! {e}')
      time.sleep(5)
      self.driver.get(url)
      print("browser opened")
@@ -107,6 +110,7 @@ while runWholeProject.diffTexts:
         if runWholeProject.i >= 200:
            runWholeProject.diffTexts = False
            print("default end")
+  #added try/except for case of missing consent button
   except selenium.common.exceptions.StaleElementReferenceException:
      time.sleep(3)
      print("stale")
